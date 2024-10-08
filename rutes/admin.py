@@ -3,21 +3,17 @@ from .models import Campus, Trail, TrailType, Point, InterestPoint
 from tabbed_admin import TabbedModelAdmin
 from .forms import PointAdminForm, TrailAdminForm
 
-# from django_summernote.admin import SummernoteModelAdmin, SummernoteModelAdminMixin, SummernoteWidget
-
 
 # change admin title
 # admin.site.site_header = 'Gestor de continguts dels itineraris saludables de la UB'
 # admin.site.index_template = 'admin/rutes/index.html' # overwritte admin index template
 
 
-
 class PointInline(admin.StackedInline):
     model = Point
     extra = 1
     form = PointAdminForm
-
-
+    
 
 class TrailAdmin(TabbedModelAdmin):
     """Trail Admin"""
@@ -63,4 +59,5 @@ admin.site.register(Campus)
 admin.site.register(TrailType)
 admin.site.register(Trail, TrailAdmin)
 admin.site.register(InterestPoint)
+
 

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.gis',
     'tabbed_admin',
+    'django_summernote',
     'rutes'
 ]
 
@@ -140,6 +141,46 @@ LANGUAGES = (
 
 TABBED_ADMIN_USE_JQUERY_UI = True
 AUTH_USER_MODEL = "rutes.User"
+
+SUMMERNOTE_CONFIG = {
+    # Using SummernoteWidget - iframe mode, default
+    'iframe': True,
+
+    # Or, you can set it to `False` to use SummernoteInplaceWidget by default - no iframe mode
+    # In this case, you have to load Bootstrap/jQuery sources and dependencies manually.
+    # Use this when you're already using Bootstrap/jQuery based themes.
+    'iframe': False,
+
+    # You can put custom Summernote settings
+    'summernote': {
+        # As an example, using Summernote Air-mode
+        'airMode': False,
+
+        # Change editor size
+        'width': '720px',
+        'height': '200px',
+
+        # Use proper language setting automatically (default)
+        'lang': None,
+
+        # Toolbar customization
+        # https://summernote.org/deep-dive/#custom-toolbar-popover
+        'toolbar': [
+            ['style', ['style']],
+            ['font', ['bold', 'underline', 'clear']],
+            ['color', ['color']],
+            ['table', ['table']],
+            ['insert', ['link', 'picture', 'video']],
+            ['view', ['fullscreen', 'codeview', 'help']],
+        ],
+
+        # Or, explicitly set language/locale for editor
+        'lang': 'ca-ES',
+        # You can also add custom settings for external plugins
+    },
+
+}
+
 
 # Overwrite settings
 extra_settings_dir = os.path.dirname(os.path.abspath(__file__))

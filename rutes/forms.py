@@ -2,17 +2,20 @@ from django import forms
 from .models import Point, Trail
 import django.contrib.gis.forms as gis_forms
 from django.contrib.gis.forms.widgets import OSMWidget
+from django_summernote.widgets import SummernoteWidget 
+from django.contrib.gis.db import models
+
 
 class PointAdminForm(forms.ModelForm):
     model = Point
-
+    description = forms.CharField(widget=SummernoteWidget())  # instead of forms.Textarea
     geom = gis_forms.PointField(
         srid=4326,
         widget=gis_forms.OSMWidget(
             attrs={
                 "map_width": 800,
                 "map_srid": 4326,
-                "map_height": 50,
+                "map_height": 500,
                 "default_lat": 41.246292,
                 "default_lon": 3.116226,
                 "default_zoom": 7,

@@ -5,9 +5,7 @@ ALLOWED_HOSTS = ['localhost']
 
 MAX_IMAGE_SIZE = 3 * 1024 * 1024  #10 Mb
 
-STATICFILES_DIRS = [
-    "E:\\toni\\sigte\\projectes\\rutes_saludables2\\static",
-]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
